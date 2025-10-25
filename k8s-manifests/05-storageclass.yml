@@ -1,0 +1,10 @@
+# NOTE: since we start using statefulset, then we need to clean up all unused things from 04-postgres.yml to avoid conflicts, run this (or comment):
+#  kubectl delete deployment postgres-deployment -n k8s-program
+#  kubectl delete service postgres -n k8s-program
+#  kubectl delete pvc postgres-pvc -n k8s-program
+#  kubectl delete pv postgres-pv
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: hostpath
+provisioner: docker.io/hostpath
